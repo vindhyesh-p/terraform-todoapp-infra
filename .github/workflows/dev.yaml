@@ -1,0 +1,10 @@
+name: "Dev Terraform Workflow"
+
+on:
+  pull_request:
+    branch:
+    - main
+
+  push:
+    branch:
+    - feature/**
