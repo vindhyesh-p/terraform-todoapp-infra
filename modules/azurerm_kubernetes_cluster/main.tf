@@ -5,6 +5,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   dns_prefix          = var.dns_prefix
 
   role_based_access_control_enabled = true
+  oidc_issuer_enabled                = true
 
   default_node_pool {
     name       = "default"
