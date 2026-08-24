@@ -12,6 +12,12 @@ resource "azurerm_kubernetes_cluster" "aks" {
     vm_size    = var.vm_size
   }
 
+  api_server_access_profile {
+    authorized_ip_ranges = [
+      "20.204.42.239"
+    ]
+  }
+
   identity {
     type = "SystemAssigned"
   }

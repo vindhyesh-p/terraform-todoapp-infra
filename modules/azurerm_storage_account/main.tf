@@ -7,6 +7,7 @@ resource "azurerm_storage_account" "strg" {
 
   network_rules {
     default_action = "Deny"
+    bypass         = ["AzureServices"]
   }
 
   tags = var.tags
