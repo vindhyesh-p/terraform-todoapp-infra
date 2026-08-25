@@ -80,13 +80,13 @@ module "keyvault" {
   tags = local.common_tags
 }
 
-module "sql_password_secret" {
-  depends_on   = [module.keyvault, module.sql_server]
-  source       = "../../modules/azurerm_key_vault_secret"
-  secret_name  = "sql-admin-password"
-  secret_value = var.sql_admin_password
-  key_vault_id = module.keyvault.key_vault_id
-}
+# module "sql_password_secret" {
+#   depends_on   = [module.keyvault, module.sql_server]
+#   source       = "../../modules/azurerm_key_vault_secret"
+#   secret_name  = "sql-admin-password"
+#   secret_value = var.sql_admin_password
+#   key_vault_id = module.keyvault.key_vault_id
+# }
 
 module "pip" {
   depends_on = [module.rg]

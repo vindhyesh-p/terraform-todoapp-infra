@@ -10,5 +10,9 @@ resource "azurerm_storage_account" "strg" {
     bypass         = ["AzureServices"]
   }
 
+  lifecycle {
+    ignore_changes = [static_website]
+  }
+
   tags = var.tags
 }
