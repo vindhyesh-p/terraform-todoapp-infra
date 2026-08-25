@@ -4,5 +4,5 @@ resource "azurerm_public_ip" "pip" {
   location            = var.location
   allocation_method   = "Static"
   sku                 = var.sku
-  tags = var.tags
+  tags                = var.tags
 }

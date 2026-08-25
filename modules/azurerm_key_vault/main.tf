@@ -16,10 +16,25 @@ resource "azurerm_key_vault" "kv" {
     default_action = "Deny"
     bypass         = "AzureServices"
     ip_rules = [
-      "20.204.42.239"
+      "20.204.42.239/32",
+      "49.36.188.212/32"
     ]
   }
 
+  # GitHub Actions Terraform Service Principal
+  access_policy {
+    tenant_id = var.tenant_id
+    object_id = "134042f2-ad57-44ff-8b89-3d28b6e232de"
+
+    secret_permissions = [
+      "Get",
+      "Set",
+      "Delete",
+      "List",
+    ]
+  }
+
+  # Current/local Azure user
   access_policy {
     tenant_id = var.tenant_id
     object_id = var.object_id
@@ -37,6 +52,11 @@ resource "azurerm_key_vault" "kv" {
 
     storage_permissions = [
       "Get",
+    ]
+  }
+  lifecycle {
+    ignore_changes = [
+      access_policy
     ]
   }
 }
