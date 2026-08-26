@@ -16,8 +16,8 @@ resource "azurerm_key_vault" "kv" {
     default_action = "Deny"
     bypass         = "AzureServices"
     ip_rules = [
-      "20.204.42.239/32",
-      "49.36.188.212/32"
+      "104.211.92.205/32",
+      "49.36.190.70/32"
     ]
   }
 
