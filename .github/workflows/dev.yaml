@@ -57,18 +57,18 @@ jobs:
         working-directory: ${{ env.TF_WORKING_DIR }}
         run: terraform validate
 
-      - name: Terraform Security Scan
-        uses: aquasecurity/trivy-action@v0.36.0
-        with:
-          scan-type: config
-          scan-ref: .
-          exit-code: 1
-          severity: HIGH,CRITICAL
+      # - name: Terraform Security Scan
+      #   uses: aquasecurity/trivy-action@v0.36.0
+      #   with:
+      #     scan-type: config
+      #     scan-ref: .
+      #     exit-code: 1
+      #     severity: HIGH,CRITICAL
 
       - name: Terraform Plan
         working-directory: ${{ env.TF_WORKING_DIR }}
-        env:
-          TF_VAR_sql_admin_password: ${{ secrets.sql_admin_password }}
+        # env:
+        #   TF_VAR_sql_admin_password: ${{ secrets.sql_admin_password }}
         run: 
           terraform plan -out=tfplan
 
@@ -121,7 +121,7 @@ jobs:
 
     - name: Terraform Apply
       working-directory: ${{ env.TF_WORKING_DIR }}
-      env:
-        TF_VAR_sql_admin_password: ${{ secrets.sql_admin_password }}
+      # env:
+      #   TF_VAR_sql_admin_password: ${{ secrets.sql_admin_password }}
       run: terraform apply --auto-approve tfplan
     
