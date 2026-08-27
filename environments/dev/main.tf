@@ -53,7 +53,7 @@ module "sql_server" {
   rg_name                      = module.rg.rg_name
   location                     = "centralindia"
   administrator_login          = "vkpadmin"
-  administrator_login_password = var.sql_admin_password
+  administrator_login_password = "Vkp@123456789"
   tags                         = local.common_tags
 }
 
