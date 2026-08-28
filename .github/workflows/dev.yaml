@@ -21,7 +21,7 @@ env:
 jobs:
   terraform-plan:
     name: Terraform Plan
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     environment: dev
     
     env:
@@ -85,7 +85,7 @@ jobs:
     needs: 
     - terraform-plan
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     environment: dev
 
     env:
