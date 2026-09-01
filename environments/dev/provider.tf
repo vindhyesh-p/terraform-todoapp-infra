@@ -7,7 +7,7 @@ terraform {
   }
   backend "azurerm" {
     resource_group_name  = "rg-todo-back"
-    storage_account_name = "strgback"
+    storage_account_name = "strgback1"
     container_name       = "tfstate"
     key                  = "dev.tfstate"
   }
