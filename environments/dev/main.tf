@@ -39,7 +39,7 @@ module "aks_subnet" {
 module "strg" {
   depends_on               = [module.rg]
   source                   = "../../modules/azurerm_storage_account"
-  strg_name                = "strgdevtodoapp01"
+  strg_name                = "strgdevtodoapp0101"
   location                 = "centralindia"
   rg_name                  = module.rg.rg_name
   account_tier             = "Standard"
@@ -73,7 +73,7 @@ data "azurerm_client_config" "current" {}
 module "keyvault" {
   source = "../../modules/azurerm_key_vault"
 
-  key_vault_name = "kv-dev-todoapp-01"
+  key_vault_name = "kv-dev-todoapp-01-01"
   location       = "centralindia"
   rg_name        = module.rg.rg_name
   tenant_id      = data.azurerm_client_config.current.tenant_id
